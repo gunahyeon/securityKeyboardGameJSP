@@ -22,6 +22,37 @@ public class UserDAO extends JDBConnect {
 			System.out.println("Exception[insertUser] : " + e.getMessage());
 		}
 	}
+
+	public boolean loginUser(String nickname, String password) {
+		System.out.println(nickname + password);
+		try {
+			String sql = "select nickname,password from st20213301_user";
+			sql += " where nickname=? and password=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, nickname);
+			pstmt.setString(2, password);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				if (password.equals(rs.getNString("password"))) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+//			if (password.equals(rs.getString("password"))) {
+//				System.out.println("rs : " + rs);
+//				System.out.println("loginUser() is finished");
+//				return true;
+//			} else {
+//				System.out.println("rs : " + rs);
+//				System.out.println("loginUser() is finished");
+//				return false;
+//			}
+		} catch (Exception e) {
+			System.out.println("Exception[loginUser] : " + e.getMessage());
+		}
+		return false;
+	}
 //	
 //	public List<MyFileDTO> myFileList() {
 //		List<MyFileDTO> myList = new ArrayList<MyFileDTO>();
