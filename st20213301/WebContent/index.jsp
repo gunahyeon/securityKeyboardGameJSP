@@ -2,6 +2,8 @@
 <%@page import="java.util.List"%>
 <%@page import="dao.UserDAO"%>
 <%@page import="dto.UserDTO"%>
+<%@page import="dao.LogDAO"%>
+<%@page import="dto.LogDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -23,11 +25,18 @@
 	request.setCharacterEncoding("UTF-8");
 	String nickname = request.getParameter("nickname");	
 	System.out.println(nickname);
+	LogDAO dao = new LogDAO(); 
+	List<LogDTO> loglist = dao.logList();
 	%>
     <article class="flow-text" style="margin: 0; padding: 0 5px; text-align: center;">
-        <small class="flow-wrap">👩🏻 <%=nickname %>, <b>[통계 최근 기록]</b> 짧은글 연습, 진행도 : 3/30, 최고타수 : 140, 목표타수 : 100, <ins>정확도 : 100%</ins> </small>
+        <small class="flow-wrap">
+        <% for(LogDTO dto : loglist){%>
+        👩🏻 <%=dto.getNickname() %> <b>[통계 최근 기록]</b> <%=dto.getTheme() %>, <ins>정확도 : <%=dto.getCorrectper() %></ins><br>
+        <%}%>
+        </small>
     </article>
     <!-- <article style="margin: 0; padding: 0 5px; text-align: center;">
+            👩🏻 , <b>[통계 최근 기록]</b> 진행도 : 3/30, 최고타수 : 140, 목표타수 : 100, <ins>정확도 : 100%</ins>
         <small>👩🏻 아아, <b>[통계 최근 기록]</b> 자리 연습, 단계 : 1,진행도 : 18%, 오타수 : 1, <ins>정확도 : 95%</ins> </small>
     </article> -->
 </section>
@@ -134,42 +143,6 @@
         </footer>
     </div>
 </dialog>
-<dialog id="step_encrpyt_keyboard">
-    <article style="width: 600px;">
-        <a href="#close"
-        aria-label="Close"
-        class="close"
-        data-target="step_encrpyt_keyboard"
-        onClick="toggleModal(event)">
-        </a>
-        <h3 style="text-align: center;">암호화 단계 선택👀</h3>
-        <form action="keyboardP.jsp" method="get">
-            <button type="submit" class="secondary">1단계</button>
-            <button type="submit" class="secondary">2단계</button>
-            <button type="submit" class="secondary">3단계</button>
-            <button type="submit" class="secondary">4단계</button>
-            <button type="submit" class="secondary">5단계</button>
-        </form>
-    </article>
-</dialog>
-<dialog id="step_decrypt_keyboard">
-    <article style="width: 600px;">
-        <a href="#close"
-        aria-label="Close"
-        class="close"
-        data-target="step_decrypt_keyboard"
-        onClick="toggleModal(event)">
-        </a>
-        <h3 style="text-align: center;">복호화 단계 선택👀</h3>
-        <form action="keyboardP.html" method="get">
-            <button type="submit" class="secondary">1단계</button>
-            <button type="submit" class="secondary">2단계</button>
-            <button type="submit" class="secondary">3단계</button>
-            <button type="submit" class="secondary">4단계</button>
-            <button type="submit" class="secondary">5단계</button>
-        </form>
-    </article>
-</dialog>
 <dialog id="step_encrpyt_word">
     <article style="width: 600px;">
         <a href="#close"
@@ -179,12 +152,12 @@
         onClick="toggleModal(event)">
         </a>
         <h3 style="text-align: center;">암호화 단계 선택👀</h3>
-        <form action="wordP.html" method="get">
-            <button type="submit" class="secondary">1단계</button>
-            <button type="submit" class="secondary">2단계</button>
-            <button type="submit" class="secondary">3단계</button>
-            <button type="submit" class="secondary">4단계</button>
-            <button type="submit" class="secondary">5단계</button>
+        <form action="wordP.jsp" method="get">
+        	<input type="hidden" name="theme" value="encrypt">
+        	<input type="hidden" name="nickname" value="<%=nickname %>">
+            <button type="submit" class="secondary" name='step' value='3'>3글자 </button>
+            <button type="submit" class="secondary" name='step' value='4'>4글자 </button>
+            <button type="submit" class="secondary" name='step' value='5'>5글자 </button>
         </form>
     </article>
 </dialog>
@@ -197,12 +170,12 @@
         onClick="toggleModal(event)">
         </a>
         <h3 style="text-align: center;">복호화 단계 선택👀</h3>
-        <form action="wordP.html" method="get">
-            <button type="submit" class="secondary">1단계</button>
-            <button type="submit" class="secondary">2단계</button>
-            <button type="submit" class="secondary">3단계</button>
-            <button type="submit" class="secondary">4단계</button>
-            <button type="submit" class="secondary">5단계</button>
+        <form action="wordP.jsp" method="get">
+           	<input type="hidden" name="theme" value="decrypt">
+     	    <input type="hidden" name="nickname" value="<%=nickname %>">
+            <button type="submit" class="secondary" name='step' value='3'>3글자 </button>
+            <button type="submit" class="secondary" name='step' value='4'>4글자 </button>
+            <button type="submit" class="secondary" name='step' value='5'>5글자 </button>
         </form>
     </article>
 </dialog>

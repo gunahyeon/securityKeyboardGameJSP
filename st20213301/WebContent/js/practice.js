@@ -9,7 +9,7 @@ for(var i=0;i<beforelist.length;i++){
 	hiddenlist.push(beforehiddenlist[i].value);
 }
 console.log(hangullist);
-
+console.log(hiddenlist);
 // 2. 조회한 리스트 섞어주기
 /*const shuffle = (array) => {
 	array.sort(() => Math.random()-0.5);

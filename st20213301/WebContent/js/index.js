@@ -2,24 +2,26 @@ document.querySelector("#keyboardP").addEventListener('click',()=>{
     document.querySelector("#content").innerHTML = '';
     document.querySelector("#content")
     .insertAdjacentHTML("afterbegin", `
-    <article style="margin:0">
-    <h6>
-        보안 글자판의 위치를 익히는 곳입니다. Base64코드 암산에 익숙하지 않다면 제일 먼저 자리 연습을 합니다.
-    </h6>
-    <h6>
-        화면에서 연습할 글쇠를 미리 볼 수 있으며, [정답 미리보기]의 도움을 받을 수 있습니다.
-    </h6>
-		<form action="keyboardP.jsp" method="post">
-			<button class="contrast" type="submit" name="theme" value="encrypt">
-            암호화 연습하기
-            </button>
-		</form>
-		<form action="keyboardP.jsp" method="post">
-			<button class="contrast" type="submit" name="theme" value="decrypt">
-            복호화 연습하기
-            </button>
-		</form>
-    </article>
+        <article style="margin:0">
+            <h6>
+                보안 글자판의 위치를 익히는 곳입니다. Base64코드 암산에 익숙하지 않다면 제일 먼저 자리 연습을 합니다.
+            </h6>
+            <h6>
+                화면에서 연습할 글쇠를 미리 볼 수 있으며, [정답 미리보기]의 도움을 받을 수 있습니다.
+            </h6>
+			<form action="keyboardP.jsp" method="get">
+				<input type="hidden" name="nickname" value="<%=nickname%>">
+	            <button class="contrast" type="submit" name="theme" value="encrypt">
+	            암호화 연습하기
+	            </button>
+			</form>
+			<form action="keyboardP.jsp" method="get">
+				<input type="hidden" name="nickname" value="<%=nickname%>">
+	            <button class="contrast" type="submit" name="theme" value="decrypt">
+	            복호화 연습하기
+	            </button>
+			</form>
+        </article>
 `);
 })
 document.querySelector("#wordP").addEventListener('click',()=>{

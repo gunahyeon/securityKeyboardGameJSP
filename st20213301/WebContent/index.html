@@ -27,7 +27,7 @@
         <button id="sentenceP">짧은글  연습</button>
         <form action="dashboard.jsp">
             <button type="submit" id="dashboard">통계</button>
-        </form>
+        </form>	
         <!-- Button to trigger the modal -->
         <div class="grid">
             <button class="secondary"
@@ -130,12 +130,11 @@
         onClick="toggleModal(event)">
         </a>
         <h3 style="text-align: center;">암호화 단계 선택👀</h3>
-        <form action="wordP.html" method="get">
-            <button type="submit" class="secondary">1단계</button>
-            <button type="submit" class="secondary">2단계</button>
-            <button type="submit" class="secondary">3단계</button>
-            <button type="submit" class="secondary">4단계</button>
-            <button type="submit" class="secondary">5단계</button>
+        <form action="wordP.jsp" method="get">
+           	<input type="hidden" name="theme" value="encrpyt">
+            <button type="submit" class="secondary" name='step' value='3'>3글자 </button>
+            <button type="submit" class="secondary" name='step' value='4'>4글자 </button>
+            <button type="submit" class="secondary" name='step' value='5'>5글자 </button>
         </form>
     </article>
 </dialog>
@@ -148,12 +147,11 @@
         onClick="toggleModal(event)">
         </a>
         <h3 style="text-align: center;">복호화 단계 선택👀</h3>
-        <form action="wordP.html" method="get">
-            <button type="submit" class="secondary">1단계</button>
-            <button type="submit" class="secondary">2단계</button>
-            <button type="submit" class="secondary">3단계</button>
-            <button type="submit" class="secondary">4단계</button>
-            <button type="submit" class="secondary">5단계</button>
+        <form action="wordP.jsp" method="get">
+           	<input type="hidden" name="theme" value="decrypt">
+            <button type="submit" class="secondary" name='step' value='3'>3글자 </button>
+            <button type="submit" class="secondary" name='step' value='4'>4글자 </button>
+            <button type="submit" class="secondary" name='step' value='5'>5글자 </button>
         </form>
     </article>
 </dialog>

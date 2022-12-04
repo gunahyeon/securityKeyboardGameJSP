@@ -57,8 +57,8 @@
 					String hidden = new String();
 					hidden = encodeOrDecode.decrypt(dto1.getKeyboard_char());
 				%>
-				<input type="hidden" class="keyboardList" style="margin-bottom: 8px;" name="keyboardList" value="<%=dto1.getKeyboard_char() %>">
-	    		<input type="hidden" class="keyboardList" style="margin-bottom: 8px;" name="hiddenList" value="<%=hidden %>">
+				<input type="hidden" style="margin-bottom: 8px;" name="keyboardList" value="<%=dto1.getKeyboard_char() %>">
+	    		<input type="hidden" style="margin-bottom: 8px;" name="hiddenList" value="<%=hidden %>">
 			<%}
 			}
 		
@@ -68,8 +68,8 @@
 					String hidden = new String();
 					hidden = encodeOrDecode.encrypt(dto.getKeyboard_char());		 
 		%>
-			<input type="hidden" class="keyboardList" style="margin-bottom: 8px;" name="keyboardList" value="<%=dto.getKeyboard_char() %>">
-    		<input type="hidden" class="keyboardList" style="margin-bottom: 8px;" name="hiddenList" value="<%=hidden %>">
+			<input type="hidden" style="margin-bottom: 8px;" name="keyboardList" value="<%=dto.getKeyboard_char() %>">
+    		<input type="hidden" style="margin-bottom: 8px;" name="hiddenList" value="<%=hidden %>">
 		<%}
 				}%>	
     </article>

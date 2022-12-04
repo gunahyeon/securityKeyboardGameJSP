@@ -30,7 +30,7 @@ public class LogDAO extends JDBConnect {
 		List<LogDTO> loglist = new ArrayList<LogDTO>();
 
 		try {
-			String sql = "select * from st20213301_log";
+			String sql = "select * from st20213301_log order by created_at";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
