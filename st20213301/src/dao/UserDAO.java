@@ -45,30 +45,4 @@ public class UserDAO extends JDBConnect {
 		}
 		return "Loginfail";
 	}
-//	
-//	public List<MyFileDTO> myFileList() {
-//		List<MyFileDTO> myList = new ArrayList<MyFileDTO>();
-//		
-//		try {
-//			String sql = "select * from myfile";
-//			pstmt = con.prepareStatement(sql);
-//			rs = pstmt.executeQuery();
-//			while(rs.next()) {
-//				MyFileDTO dto = new MyFileDTO();
-//				dto.setIdx(rs.getInt("idx"));
-//				dto.setName(rs.getString("name"));
-//				dto.setCate(rs.getString("cate"));
-//				dto.setTitle(rs.getString("title"));
-//				dto.setOfile(rs.getString("ofile"));
-//				dto.setSfile(rs.getString("sfile"));
-//				dto.setPostdate(rs.getString("postdate"));
-//				myList.add(dto);
-//			}
-//			System.out.println("db��ȸ����");
-//			return myList;
-//		} catch(Exception e) {
-//			System.out.println("Exception[List] : " + e.getMessage());
-//		}
-//		return null;
-//	}
 }
