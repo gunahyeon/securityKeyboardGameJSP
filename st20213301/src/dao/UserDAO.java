@@ -7,6 +7,7 @@ import common.JDBConnect;
 import dto.UserDTO;
 
 public class UserDAO extends JDBConnect {
+	// 회원가입
 	public void insertUser(UserDTO dto) {
 		System.out.println("df");
 		System.out.println("call");
@@ -23,8 +24,8 @@ public class UserDAO extends JDBConnect {
 		}
 	}
 
-	public boolean loginUser(String nickname, String password) {
-		System.out.println(nickname + password);
+	// 로그인
+	public String loginUser(String nickname, String password) {
 		try {
 			String sql = "select nickname,password from st20213301_user";
 			sql += " where nickname=? and password=?";
@@ -34,24 +35,15 @@ public class UserDAO extends JDBConnect {
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				if (password.equals(rs.getNString("password"))) {
-					return true;
+					return nickname;
 				} else {
-					return false;
+					return "Loginfail";
 				}
 			}
-//			if (password.equals(rs.getString("password"))) {
-//				System.out.println("rs : " + rs);
-//				System.out.println("loginUser() is finished");
-//				return true;
-//			} else {
-//				System.out.println("rs : " + rs);
-//				System.out.println("loginUser() is finished");
-//				return false;
-//			}
 		} catch (Exception e) {
 			System.out.println("Exception[loginUser] : " + e.getMessage());
 		}
-		return false;
+		return "Loginfail";
 	}
 //	
 //	public List<MyFileDTO> myFileList() {

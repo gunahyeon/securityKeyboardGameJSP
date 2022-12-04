@@ -1,3 +1,10 @@
+<%@page import="java.net.URLEncoder"%>
+<%@page import="java.util.List"%>
+<%@page import="util.EncodeOrDecode"%>
+<%@page import="dao.KeyboardPlaintextDAO"%>
+<%@page import="dto.KeyboardPlaintextDTO"%>
+<%@page import="dao.KeyboardEncrypttextDAO"%>
+<%@page import="dto.KeyboardEncrypttextDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -6,6 +13,11 @@
 <meta charset="UTF-8">
 <title>보안과컴퓨터👀 :: 자리 연습</title>
 <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+<%	
+	request.setCharacterEncoding("UTF-8");
+	String theme = request.getParameter("theme");	
+	System.out.println(theme);
+%>
 </head>
 <body>
 <main class="container">
@@ -28,13 +40,46 @@
 </section>
 <div style="margin-bottom: 16px;">
     <article id="keyboardList" class="grid" style="margin: 0; padding: 10px; text-align: center; align-items: end;">
+    	<% 
+		KeyboardPlaintextDAO dao = new KeyboardPlaintextDAO(); 
+		List<KeyboardPlaintextDTO> keyboardList = dao.keyboardList();
+	
+		KeyboardEncrypttextDAO dao1 = new KeyboardEncrypttextDAO();
+		List<KeyboardEncrypttextDTO> keyboardList1 = dao1.keyboardList();
+		
+			if (theme.equals("decrypt")) {
+				for(KeyboardEncrypttextDTO dto1 : keyboardList1){
+					EncodeOrDecode encodeOrDecode = new EncodeOrDecode();
+					String hidden = new String();
+					hidden = encodeOrDecode.decrypt(dto1.getKeyboard_char());
+				%>
+				<input type="hidden" class="keyboardList" style="margin-bottom: 8px;" name="keyboardList" value="<%=dto1.getKeyboard_char() %>">
+	    		<input type="hidden" class="keyboardList" style="margin-bottom: 8px;" name="hiddenList" value="<%=hidden %>">
+			<%}
+			}
+		
+			if(theme.equals("encrypt")) {
+				for(KeyboardPlaintextDTO dto : keyboardList){
+					EncodeOrDecode encodeOrDecode = new EncodeOrDecode();
+					String hidden = new String();
+					hidden = encodeOrDecode.encrypt(dto.getKeyboard_char());		 
+		%>
+			<input type="hidden" class="keyboardList" style="margin-bottom: 8px;" name="keyboardList" value="<%=dto.getKeyboard_char() %>">
+    		<input type="hidden" class="keyboardList" style="margin-bottom: 8px;" name="hiddenList" value="<%=hidden %>">
+		<%}
+				}%>	
     </article>
 </div>
 <section style="margin: 0; padding : 0 5px;">
     <!-- Switches -->
     <fieldset> 
         <input type="checkbox" id="preview" name="sec" style="margin-left: 8px;">
-        <label for="preview">암호화 미리보기</label>
+        <%if(theme.equals("decrypt")){%>
+        	<label for="preview">복호화 미리보기</label> 
+        <%} %>
+        <%if(theme.equals("encrypt")){%>
+       		<label for="preview">암호화 미리보기</label> 
+        <%} %>
     </fieldset>
     <input type="text" id="inputAnswer" placeholder="입력 후 [Enter]를 누르세요." autofocus>
 </section>

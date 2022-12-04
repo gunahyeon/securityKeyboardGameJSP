@@ -1,14 +1,23 @@
-// 1. db 테이블 조회하여 가져온 리스트 
-hangullist = ["ㄱㄴㄷ","ㄴㄷ","ㄷㄹ","ㄹㅁ","ㅁㅎ","ㅂㄷ","ㅅㅍ","ㅇㅇ","ㅂㅠ","ㅈㅅ","ㅊㅇ","ㅋㅍ","ㅌㄷ","ㅍㅍ","ㅎㅎ"]; //db내용
+// 1. db 테이블 조회하여 가져온 랜덤리스트 
+console.log("imcold")
+hangullist =[];
+hiddenlist =[];
+beforelist = document.getElementsByName("keyboardList");
+beforehiddenlist = document.getElementsByName("hiddenList");
+for(var i=0;i<beforelist.length;i++){
+	hangullist.push(beforelist[i].value);
+	hiddenlist.push(beforehiddenlist[i].value);
+}
+console.log(hangullist);
 
 // 2. 조회한 리스트 섞어주기
-const shuffle = (array) => {
-    array.sort(() => Math.random()-0.5);
+/*const shuffle = (array) => {
+	array.sort(() => Math.random()-0.5);
 }
-shuffle(hangullist);
-
+shuffle(hangullist);*/
+		
 // 3. db encrypt/decrypt 요청후 리스트로 받기.
-hiddenlist = ['ab','abc','avd','xr=','rd','fds','fdg','fds','1fr','dyh=','457','dhgf','fdf','7yjg','3ewd'];
+//hiddenlist = ['ab','abc','avd','xr=','rd','fds','fdg','fds','1fr','dyh=','457','dhgf','fdf','7yjg','3ewd'];
 
 // 4. 전역 변수선언
 var index = 0; // 인덱스
@@ -130,7 +139,7 @@ document.querySelector("#inputAnswer").addEventListener("change", (event)=>{
     else if(checked === true && index == (hiddenlist.length-1)){
         document.querySelector("#blank1").insertAdjacentHTML('afterbegin',`${hiddenlist[index]}`);
     }
-    else if(index == (hiddenlist.length)){
+    else if(index == (hangullist.length)){
         alert("done!");
     }
     event.target.value = '';

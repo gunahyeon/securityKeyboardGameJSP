@@ -9,16 +9,16 @@ document.querySelector("#keyboardP").addEventListener('click',()=>{
     <h6>
         화면에서 연습할 글쇠를 미리 볼 수 있으며, [정답 미리보기]의 도움을 받을 수 있습니다.
     </h6>
-    <button class="contrast"
-    data-target="step_encrpyt_keyboard"
-    onClick="toggleModal(event)">
-    암호화 연습하기
-    </button>
-    <button class="contrast"
-    data-target="step_decrypt_keyboard"
-    onClick="toggleModal(event)">
-    복호화 연습하기
-    </button>
+		<form action="keyboardP.jsp" method="post">
+			<button class="contrast" type="submit" name="theme" value="encrypt">
+            암호화 연습하기
+            </button>
+		</form>
+		<form action="keyboardP.jsp" method="post">
+			<button class="contrast" type="submit" name="theme" value="decrypt">
+            복호화 연습하기
+            </button>
+		</form>
     </article>
 `);
 })
