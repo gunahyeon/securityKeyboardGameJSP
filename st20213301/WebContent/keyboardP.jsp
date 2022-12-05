@@ -33,7 +33,7 @@
             <small id="processText" >진행도 : 0%</small><br>
             <small><ins id="accuracyText">정확도 : 0% </ins></small><br>
             <small id="errCount">오타수 : 0</small>
-            <input id="theme" type="hidden" name="theme" value="자리 연습 ">
+            <input id="theme" type="hidden" name="theme" value="자리 연습">
             <input id="nickname" type="hidden" name="nickname" value="<%=nickname %>">
         </div>
         <div style="width: 100%;">

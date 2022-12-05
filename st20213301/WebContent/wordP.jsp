@@ -33,9 +33,12 @@
 
     <article style="margin: 0; padding : 0 5px; display: flex;">
         <div style="width: 10%; margin-right: 30px;">
-            <small id="processText">진행도 : 0%</small><br>
+            <small id="processText" >진행도 : 0%</small><br>
             <small><ins id="accuracyText">정확도 : 0% </ins></small><br>
             <small id="errCount">오타수 : 0</small>
+            <input id="theme" type="hidden" name="theme" value="낱말 연습">
+            <input id="step" type="hidden" name="theme" value="<%=step %> ">
+            <input id="nickname" type="hidden" name="nickname" value="<%=nickname %>">
         </div>
         <div style="width: 100%;">
             <progress id="processBar" style="margin-top: 10px; border-radius: 0;" value="0" max="100"></progress><br>

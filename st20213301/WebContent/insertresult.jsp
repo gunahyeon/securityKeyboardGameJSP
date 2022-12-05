@@ -23,13 +23,16 @@
 	System.out.println(maxspeed); //
 	response.sendRedirect("index.jsp");
 	
-	if(nickname.equals(null)) {
+	if(nickname == null) {
 		nickname = "익명의 유저";
+	}
+	if(step == null) {
+		step = "";
 	}
 	LogDTO dto = new LogDTO();
 	dto.setNickname(nickname);
 	dto.setTheme(theme);
-	dto.setStep("");
+	dto.setStep(step);
 	dto.setIncorrect(incorrect);
 	dto.setMaxspeed("");
 	dto.setCorrectper(correctper+"%");

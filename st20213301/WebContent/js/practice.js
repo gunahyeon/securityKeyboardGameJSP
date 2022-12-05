@@ -141,26 +141,50 @@ document.querySelector("#inputAnswer").addEventListener("change", (event)=>{
     }
     else if(index == (hangullist.length)){
         alert("연습 끝! [확인]: 통계 페이지로 이동합니다.");
-		$.ajax({
-			type:"post",
-			url:"insertresult.jsp",
-			data:{
-				nickname:document.querySelector("#nickname").value,
-				theme:document.querySelector("#theme").value,
-				incorrect:errCount,
-				correctper:parseInt(document.querySelector("#accuracyBar").value),
-				created_at:new Date().toLocaleString(),
-				step:"",
-				maxspeed:""
+		if(document.querySelector("#theme").value == "자리 연습") {
+				$.ajax({
+				type:"post",
+				url:"insertresult.jsp",
+				data:{
+					nickname:document.querySelector("#nickname").value,
+					theme:document.querySelector("#theme").value,
+					incorrect:errCount,
+					correctper:parseInt(document.querySelector("#accuracyBar").value),
+					created_at:new Date().toLocaleString(),
+					step:"",
+					maxspeed:""
+					},
+				success : (res)=> {
+					console.log("success");
+					location.href = "dashboard.jsp";
 				},
-			success : (res)=> {
-				console.log("success");
-				location.href = "dashboard.jsp";
-			},
-			error : (err)=>{
-				console.log(err);
-			}
-		});
+				error : (err)=>{
+					console.log(err);
+				}
+			});
+		}
+		else if (document.querySelector("#theme").value =="낱말 연습") {
+				$.ajax({
+				type:"post",
+				url:"insertresult.jsp",
+				data:{
+					nickname:document.querySelector("#nickname").value,
+					theme:document.querySelector("#theme").value,
+					incorrect:errCount,
+					correctper:parseInt(document.querySelector("#accuracyBar").value),
+					created_at:new Date().toLocaleString(),
+					step:document.querySelector("#step").value,
+					maxspeed:""
+					},
+				success : (res)=> {
+					console.log("success");
+					location.href = "dashboard.jsp";
+				},
+				error : (err)=>{
+					console.log(err);
+				}
+			});
+		}
     }
     event.target.value = '';
 })
