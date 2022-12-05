@@ -30,7 +30,7 @@
 <section>
     <article style="margin: 0; padding : 0 5px; display: flex;">
         <div style="width: 16%; margin-right: 30px;">
-            <small id="processText">진행도 : 0/15</small><br>
+            <small id="processText">진행도 : 0/18</small><br>
             <small><ins id="accuracyText">정확도 : 0% </ins></small><br>
             <small id="timer">남은시간 : 5분</small><br>
             <small id="keySpeed">현재타수 : 0</small><br>

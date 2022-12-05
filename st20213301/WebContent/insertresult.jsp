@@ -9,7 +9,6 @@
 	request.setCharacterEncoding("UTF-8");
 	String nickname = request.getParameter("nickname");
 	String theme = request.getParameter("theme");
-	String typeSec = request.getParameter("typeSec");
 	String created_at = request.getParameter("created_at");
 	String incorrect = request.getParameter("incorrect"); 
 	String correctper = request.getParameter("correctper"); 
@@ -32,10 +31,10 @@
 	}
 	LogDTO dto = new LogDTO();
 	dto.setNickname(nickname);
-	dto.setTheme(theme + " " + typeSec);
+	dto.setTheme(theme);
 	dto.setStep(step);
 	dto.setIncorrect(incorrect);
-	dto.setMaxspeed("");
+	dto.setMaxspeed(maxspeed);
 	dto.setCorrectper(correctper+"%");
 	dto.setCreated_at(created_at);
 	

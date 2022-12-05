@@ -165,7 +165,27 @@ document.querySelector("#inputAnswer").addEventListener("change", (event)=>{
         document.querySelector("#blank1").insertAdjacentHTML('afterbegin',`${hiddenlist[index]}`);
     }
     else if(index == (hiddenlist.length)){
-        alert("done!");
+        alert("연습 끝! [확인]: 통계 페이지로 이동합니다.");
+			$.ajax({
+			type:"post",
+			url:"insertresult.jsp",
+			data:{
+				nickname:document.querySelector("#nickname").value,
+				theme:document.querySelector("#theme").value,
+				incorrect:"",
+				correctper:parseInt(document.querySelector("#accuracyBar").value),
+				created_at:new Date().toLocaleString(),
+				step:"",
+				maxspeed:keyMaxSpeed
+				},
+			success : (res)=> {
+				console.log("success");
+				location.href = "dashboard.jsp";
+			},
+			error : (err)=>{
+				console.log(err);
+			}
+		});
     }
     event.target.value = '';
 })
