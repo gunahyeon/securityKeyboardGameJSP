@@ -1,28 +1,25 @@
-// 1. db 테이블 조회하여 가져온 리스트 
-hangullist = ["어머님, 하나 이름과, 봄이 경, 봅니다.",
-"아름다운 이름과, 가득 청춘이 이름을 슬퍼하는 봅니다.",
-"이름과 보고, 하나에 무엇인지 헤는 둘 있습니다.",
-"가득 어머님, 다하지 프랑시스 언덕 같이 있습니다.",
-"겨울이 하나에 한 이름자 별이 사랑과 별 듯합니다.",
-"소학교 별들을 겨울이 마리아 시와 불러 그리고 있습니다. 부끄러운 내 추억과 우는 있습니다.",
-"이름자를 아스라히 아름다운 무엇인지 새워 가슴속에 라이너 거외다.",
-"않은 멀리 위에 위에 무성할 하나 이 우는 별 봅니다.",
-"북간도에 별 그러나 불러 추억과 거외다.",
-"위에 별 이름자 것은 아직 까닭이요, 이런 듯합니다.",
-"별 밤을 이런 말 별들을 벌써 가슴속에 가난한 거외다.",
-"계집애들의 사랑과 쉬이 없이 듯합니다.",
-"별 그리워 위에 계십니다.",
-"멀듯이, 하나에 북간도에 멀리 봅니다.",
-"묻힌 새워 하나에 불러 노새"]; //db내용
+// 1. db 테이블 조회하여 가져온 리스트
+
+console.log("imcold")
+hangullist =[];
+hiddenlist =[];
+beforelist = document.getElementsByName("keyboardList");
+beforehiddenlist = document.getElementsByName("hiddenList");
+for(var i=0;i<beforelist.length;i++){
+	hangullist.push(beforelist[i].value);
+	hiddenlist.push(beforehiddenlist[i].value);
+}
+console.log(hangullist);
+console.log(hiddenlist);
 
 // 2. 조회한 리스트 섞어주기
-const shuffle = (array) => {
+/*const shuffle = (array) => {
     array.sort(() => Math.random()-0.5);
 }
-shuffle(hangullist);
+shuffle(hangullist);*/
 
 // 3. db encrypt/decrypt 요청후 리스트로 받기.
-hiddenlist = ['ab','abc','avd','xr=','rd','fds','fdg','fds','1fr','dyh=','457','dhgf','fdf','7yjg','3ewd'];
+//hiddenlist = ['ab','abc','avd','xr=','rd','fds','fdg','fds','1fr','dyh=','457','dhgf','fdf','7yjg','3ewd'];
 
 // 4. 전역 변수선언
 var index = 0; // 인덱스
