@@ -143,12 +143,12 @@
         </footer>
     </div>
 </dialog>
-<dialog id="step_encrpyt_word">
+<dialog id="step_encrypt_word">
     <article style="width: 600px;">
         <a href="#close"
         aria-label="Close"
         class="close"
-        data-target="step_encrpyt_word"
+        data-target="step_encrypt_word"
         onClick="toggleModal(event)">
         </a>
         <h3 style="text-align: center;">암호화 단계 선택👀</h3>

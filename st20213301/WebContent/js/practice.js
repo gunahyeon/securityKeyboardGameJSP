@@ -28,10 +28,10 @@ var processBar = 100/(hangullist.length);
 // 5. 초기작업
 // 5-1. 보드판 초기작업
 document.querySelector("#keyboardList").insertAdjacentHTML("afterbegin",`
-<h1 style="margin-bottom: 8px;"><b style="font-size: 60px; background-color: var(--del-color); opacity: 30%;"></b></h1>
-<h1 style="margin-bottom: 8px;"><b style="font-size: 80px; background-color: var(--ins-color);">${hangullist[0]}</b><small id="blank1" style="margin-left:8px; font-size: 20px; opacity: 30%;"></small></h1>
-<h1 style="margin-bottom: 8px;"><b style="font-size: 60px; background-color: var(--secondary); opacity: 30%;">${hangullist[1]}</b><small id="blank2" style="margin-left:8px; font-size: 20px; opacity: 30%;"></small></h1>
-<h1 style="margin-bottom: 8px;"><b style="font-size: 60px; background-color: var(--secondary); opacity: 30%;">${hangullist[2]}</b><small id="blank3" style="margin-left:8px; font-size: 20px; opacity: 30%;"></small></h1>
+<h1 style="margin-bottom: 8px;"><b style="font-size: 30px; background-color: var(--del-color); opacity: 30%;"></b></h1>
+<h1 style="margin-bottom: 8px;"><b style="font-size: 50px; background-color: var(--ins-color);">${hangullist[0]}</b><small id="blank1" style="margin-left:8px; font-size: 20px; opacity: 30%;"></small></h1>
+<h1 style="margin-bottom: 8px;"><b style="font-size: 30px; background-color: var(--secondary); opacity: 30%;">${hangullist[1]}</b><small id="blank2" style="margin-left:8px; font-size: 20px; opacity: 30%;"></small></h1>
+<h1 style="margin-bottom: 8px;"><b style="font-size: 50px; background-color: var(--secondary); opacity: 30%;">${hangullist[2]}</b><small id="blank3" style="margin-left:8px; font-size: 20px; opacity: 30%;"></small></h1>
 `);
 
 // 5-2. 미리보기 초기작업
@@ -59,9 +59,9 @@ document.querySelector("#inputAnswer").addEventListener('keypress', (event)=>{
         document.querySelector("#keyboardList").innerHTML = '';
         document.querySelector("#keyboardList").insertAdjacentHTML("afterbegin",`
         ${result}
-        <h1 style="margin-bottom: 8px;"><b style="font-size: 80px; background-color: var(--ins-color);">${hangullist[index+1]}</b><small id="blank1" style="margin-left:8px; font-size: 20px; opacity: 30%;"></small></h1>
-        <h1 style="margin-bottom: 8px;"><b style="font-size: 60px; background-color: var(--secondary); opacity: 30%;">${hangullist[index+2]}</b><small id="blank2" style="margin-left:8px; font-size: 20px; opacity: 30%;"></small></h1>
-        <h1 style="margin-bottom: 8px;"><b style="font-size: 60px; background-color: var(--secondary); opacity: 30%;">${hangullist[index+3]}</b><small id="blank3" style="margin-left:8px; font-size: 20px; opacity: 30%;"></small></h1>
+        <h1 style="margin-bottom: 8px;"><b style="font-size: 50px; background-color: var(--ins-color);">${hangullist[index+1]}</b><small id="blank1" style="margin-left:8px; font-size: 20px; opacity: 30%;"></small></h1>
+        <h1 style="margin-bottom: 8px;"><b style="font-size: 30px; background-color: var(--secondary); opacity: 30%;">${hangullist[index+2]}</b><small id="blank2" style="margin-left:8px; font-size: 20px; opacity: 30%;"></small></h1>
+        <h1 style="margin-bottom: 8px;"><b style="font-size: 30px; background-color: var(--secondary); opacity: 30%;">${hangullist[index+3]}</b><small id="blank3" style="margin-left:8px; font-size: 20px; opacity: 30%;"></small></h1>
         `);
         index++;
     }
@@ -71,9 +71,9 @@ document.querySelector("#inputAnswer").addEventListener('keypress', (event)=>{
         document.querySelector("#keyboardList").innerHTML = '';
         document.querySelector("#keyboardList").insertAdjacentHTML("afterbegin",`
         ${result}
-        <h1 style="margin-bottom: 8px;"><b style="font-size: 80px; background-color: var(--ins-color);">${hangullist[index+1]}</b><small id="blank1" style="margin-left:8px; font-size: 20px; opacity: 30%;"></small></h1>
-        <h1 style="margin-bottom: 8px;"><b style="font-size: 60px; background-color: var(--secondary); opacity: 30%;">${hangullist[index+2]}</b><small id="blank2" style="margin-left:8px; font-size: 20px; opacity: 30%;"></small></h1>
-        <h1 style="margin-bottom: 8px;"><b style="font-size: 60px; background-color: var(--secondary); opacity: 30%;"></b><small id="blank3" style="margin-left:8px; font-size: 20px; opacity: 30%;"></small></h1>
+        <h1 style="margin-bottom: 8px;"><b style="font-size: 50px; background-color: var(--ins-color);">${hangullist[index+1]}</b><small id="blank1" style="margin-left:8px; font-size: 20px; opacity: 30%;"></small></h1>
+        <h1 style="margin-bottom: 8px;"><b style="font-size: 30px; background-color: var(--secondary); opacity: 30%;">${hangullist[index+2]}</b><small id="blank2" style="margin-left:8px; font-size: 20px; opacity: 30%;"></small></h1>
+        <h1 style="margin-bottom: 8px;"><b style="font-size: 30px; background-color: var(--secondary); opacity: 30%;"></b><small id="blank3" style="margin-left:8px; font-size: 20px; opacity: 30%;"></small></h1>
         `);
         index++;
     }
@@ -83,9 +83,9 @@ document.querySelector("#inputAnswer").addEventListener('keypress', (event)=>{
         document.querySelector("#keyboardList").innerHTML = '';
         document.querySelector("#keyboardList").insertAdjacentHTML("afterbegin",`
         ${result}
-        <h1 style="margin-bottom: 8px;"><b style="font-size: 80px; background-color: var(--ins-color);">${hangullist[index+1]}</b><small id="blank1" style="margin-left:8px; font-size: 20px; opacity: 30%;"></small></h1>
-        <h1 style="margin-bottom: 8px;"><b style="font-size: 60px; background-color: var(--secondary); opacity: 30%;"></b><small id="blank2" style="margin-left:8px; font-size: 20px; opacity: 30%;"></small></h1>
-        <h1 style="margin-bottom: 8px;"><b style="font-size: 60px; background-color: var(--secondary); opacity: 30%;"></b><small id="blank3" style="margin-left:8px; font-size: 20px; opacity: 30%;"></small></h1>
+        <h1 style="margin-bottom: 8px;"><b style="font-size: 50px; background-color: var(--ins-color);">${hangullist[index+1]}</b><small id="blank1" style="margin-left:8px; font-size: 20px; opacity: 30%;"></small></h1>
+        <h1 style="margin-bottom: 8px;"><b style="font-size: 30px; background-color: var(--secondary); opacity: 30%;"></b><small id="blank2" style="margin-left:8px; font-size: 20px; opacity: 30%;"></small></h1>
+        <h1 style="margin-bottom: 8px;"><b style="font-size: 30px; background-color: var(--secondary); opacity: 30%;"></b><small id="blank3" style="margin-left:8px; font-size: 20px; opacity: 30%;"></small></h1>
         `);
         index++;
     }
@@ -95,9 +95,9 @@ document.querySelector("#inputAnswer").addEventListener('keypress', (event)=>{
         document.querySelector("#keyboardList").innerHTML = '';
         document.querySelector("#keyboardList").insertAdjacentHTML("afterbegin",`
         ${result}
-        <h1 style="margin-bottom: 8px;"><b style="font-size: 80px; background-color: var(--ins-color);"></b><small id="blank1" style="margin-left:8px; font-size: 20px; opacity: 30%;"></small></h1>
-        <h1 style="margin-bottom: 8px;"><b style="font-size: 60px; background-color: var(--secondary); opacity: 30%;"></b><small id="blank2" style="margin-left:8px; font-size: 20px; opacity: 30%;"></small></h1>
-        <h1 style="margin-bottom: 8px;"><b style="font-size: 60px; background-color: var(--secondary); opacity: 30%;"></b><small id="blank3" style="margin-left:8px; font-size: 20px; opacity: 30%;"></small></h1>
+        <h1 style="margin-bottom: 8px;"><b style="font-size: 50px; background-color: var(--ins-color);"></b><small id="blank1" style="margin-left:8px; font-size: 20px; opacity: 30%;"></small></h1>
+        <h1 style="margin-bottom: 8px;"><b style="font-size: 30px; background-color: var(--secondary); opacity: 30%;"></b><small id="blank2" style="margin-left:8px; font-size: 20px; opacity: 30%;"></small></h1>
+        <h1 style="margin-bottom: 8px;"><b style="font-size: 30px; background-color: var(--secondary); opacity: 30%;"></b><small id="blank3" style="margin-left:8px; font-size: 20px; opacity: 30%;"></small></h1>
         `);
         index++;
     }
@@ -110,12 +110,12 @@ const check = (answer, question, hidden) => {
         document.querySelector("#accuracyBar").value += accuracyBar;
         document.querySelector("#accuracyText").innerHTML = '';
         document.querySelector("#accuracyText").innerHTML = '정확도 : ' + parseInt(document.querySelector("#accuracyBar").value) + '%';
-        return `<h1 style="margin-bottom: 8px;"><b style="font-size: 60px; background-color: var(--ins-color); opacity: 30%;">${question}</b><small style="margin-left:8px; font-size: 20px; opacity: 30%;">${hidden}</small></h1>`
+        return `<h1 style="margin-bottom: 8px;"><b style="font-size: 40px; background-color: var(--ins-color); opacity: 30%;">${question}</b><small style="margin-left:8px; font-size: 20px; opacity: 30%;">${hidden}</small></h1>`
     } 
     else if (answer !== hidden) {
         document.querySelector("#errCount").innerHTML = '';
         document.querySelector("#errCount").innerHTML = '오타수 : ' + ++errCount;
-        return `<h1 style="margin-bottom: 8px;"><b style="font-size: 60px; background-color: var(--del-color); opacity: 30%;">${question}</b><small style="margin-left:8px; font-size: 20px; opacity: 30%;">${answer}</small></h1>`
+        return `<h1 style="margin-bottom: 8px;"><b style="font-size: 40px; background-color: var(--del-color); opacity: 30%;">${question}</b><small style="margin-left:8px; font-size: 20px; opacity: 30%;">${answer}</small></h1>`
     }    
 }
 
