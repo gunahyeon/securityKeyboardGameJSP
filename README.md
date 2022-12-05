@@ -1,7 +1,7 @@
 # securityKeyboardGameJSP
 # 개발환경
 * JDK 1.8
-* H2 DATABASE
+* H2 DATABASE 1.4.192
 * Pico Css
 * eclipse 2020. 06
 
